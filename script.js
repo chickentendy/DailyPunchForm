@@ -82,7 +82,37 @@ saveButton.addEventListener("click", () => {
 
         date: dateInput.value,
 
-        week: getWeek(dateInput.value),
+        week: function getWeek(dateString){
+
+    let date = new Date(dateString);
+
+
+    // Move to Monday
+    let day = date.getDay();
+
+    let diff = date.getDate() - day + 
+        (day === 0 ? -6 : 1);
+
+
+    let monday = new Date(date.setDate(diff));
+
+
+    let year = monday.getFullYear();
+
+
+    let month = String(
+        monday.getMonth()+1
+    ).padStart(2,"0");
+
+
+    let dayNum = String(
+        monday.getDate()
+    ).padStart(2,"0");
+
+
+    return `${year}-${month}-${dayNum}`;
+
+},
 
         hours: Number(hoursInput.value) || 0,
 
@@ -100,7 +130,17 @@ saveButton.addEventListener("click", () => {
 
         location: locationInput.value,
 
-        comments: commentsInput.value
+        comments: comments: commentsInput.value,
+
+vehicle: document.getElementById("vehicleType").value,
+
+mileageRate: Number(
+document.getElementById("mileageRate").value
+) || 0.76,
+
+hourlyRate: Number(
+document.getElementById("hourlyRate").value
+) || 0
 
     };
 
@@ -325,7 +365,146 @@ function renderTable() {
 
 
 
-    updateTotals(filtered);
+    function updateTotals(data){
+
+
+let hours = 0;
+let miles = 0;
+let acres = 0;
+let travel = 0;
+let personalMiles = 0;
+
+let mileagePay = 0;
+
+
+
+let hourlyRate = 0;
+
+
+
+data.forEach(e=>{
+
+
+hours += e.hours;
+
+miles += e.miles;
+
+acres += e.acres;
+
+travel += e.travel;
+
+
+if(e.vehicle === "Personal Vehicle"){
+
+personalMiles += e.miles;
+
+mileagePay += 
+e.miles * e.mileageRate;
+
+}
+
+
+if(e.hourlyRate > 0){
+
+hourlyRate = e.hourlyRate;
+
+}
+
+
+});
+
+
+
+let regularHours =
+Math.min(hours,40);
+
+
+let overtimeHours =
+Math.max(hours-40,0);
+
+
+
+let regularPay =
+regularHours * hourlyRate;
+
+
+
+let overtimePay =
+overtimeHours *
+(hourlyRate*1.5);
+
+
+
+let gross =
+regularPay +
+overtimePay +
+mileagePay;
+
+
+
+document.getElementById(
+"totalHours"
+).innerText =
+hours.toFixed(2);
+
+
+
+document.getElementById(
+"regularHours"
+).innerText =
+regularHours.toFixed(2);
+
+
+
+document.getElementById(
+"overtimeHours"
+).innerText =
+overtimeHours.toFixed(2);
+
+
+
+document.getElementById(
+"totalMiles"
+).innerText =
+miles;
+
+
+
+document.getElementById(
+"personalMiles"
+).innerText =
+personalMiles;
+
+
+
+document.getElementById(
+"mileagePay"
+).innerText =
+mileagePay.toFixed(2);
+
+
+
+document.getElementById(
+"regularPay"
+).innerText =
+regularPay.toFixed(2);
+
+
+
+document.getElementById(
+"overtimePay"
+).innerText =
+overtimePay.toFixed(2);
+
+
+
+document.getElementById(
+"grossPay"
+).innerText =
+gross.toFixed(2);
+
+
+};
 
 
 }
