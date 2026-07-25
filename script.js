@@ -788,3 +788,119 @@ if ("serviceWorker" in navigator) {
     );
 
 }
+// ---------- Settings ----------
+
+
+function loadSettings(){
+
+    let saved =
+    localStorage.getItem(
+        "fieldSettings"
+    );
+
+
+    if(saved){
+
+        settings =
+        JSON.parse(saved);
+
+    }
+
+
+}
+
+
+
+document
+.getElementById("saveSettingsBtn")
+.addEventListener(
+"click",
+()=>{
+
+
+settings.hourlyRate =
+Number(
+document.getElementById(
+"defaultHourlyRate"
+).value
+);
+
+
+
+settings.mileageRate =
+Number(
+document.getElementById(
+"defaultMileageRate"
+).value
+);
+
+
+
+settings.vehicle =
+document.getElementById(
+"defaultVehicle"
+).value;
+
+
+
+localStorage.setItem(
+"fieldSettings",
+JSON.stringify(settings)
+);
+
+
+
+alert("Settings Saved");
+
+
+});
+
+
+
+
+
+function fillDefaultValues(){
+
+
+document.getElementById(
+"hourlyRate"
+).value =
+settings.hourlyRate;
+
+
+
+document.getElementById(
+"mileageRate"
+).value =
+settings.mileageRate;
+
+
+
+document.getElementById(
+"vehicleType"
+).value =
+settings.vehicle;
+
+
+
+document.getElementById(
+"defaultHourlyRate"
+).value =
+settings.hourlyRate;
+
+
+
+document.getElementById(
+"defaultMileageRate"
+).value =
+settings.mileageRate;
+
+
+
+document.getElementById(
+"defaultVehicle"
+).value =
+settings.vehicle;
+
+
+}
