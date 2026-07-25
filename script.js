@@ -24,6 +24,22 @@ let settings = {
 
 document.addEventListener("DOMContentLoaded", () => {
 
+    loadSettings();
+
+    loadEntries();
+
+    setDefaultDate();
+
+    setDefaultWeek();
+
+    fillDefaultValues();
+
+    calculateMiles();
+
+    renderTable();
+
+});
+
     loadEntries();
 
     setDefaultDate();
