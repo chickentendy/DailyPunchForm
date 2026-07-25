@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Field Work Tracker</title>
+
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="style.css">
+
+    <meta name="theme-color" content="#2E7D32">
+</head>
+
+<body>
+
+<header>
+    <h1>🌾 Field Work Tracker</h1>
+</header>
+
+<div class="container">
+
+    <div class="card">
+
+        <h2>Daily Entry</h2>
+
+        <label>Date</label>
+        <input type="date" id="date">
+
+        <label>Hours Worked</label>
+        <input type="number" id="hours" step="0.25">
+
+        <label>Starting Odometer</label>
+        <input type="number" id="startOdo">
+
+        <label>Ending Odometer</label>
+        <input type="number" id="endOdo">
+
+        <label>Daily Miles</label>
+        <input type="number" id="dailyMiles" readonly>
+
+        <label>Acres Sampled</label>
+        <input type="number" id="acres">
+
+        <label>Sampling Type</label>
+        <select id="samplingType">
+            <option value="">Select...</option>
+            <option>Soil</option>
+            <option>Tissue</option>
+            <option>Water</option>
+            <option>Plant</option>
+            <option>Other</option>
+        </select>
+
+        <label>Travel Time (Hours)</label>
+        <input type="number" id="travelTime" step="0.25">
+
+        <label>Location Area</label>
+        <input type="text" id="location">
+
+        <label>Other Work Comments</label>
+        <textarea id="comments" rows="4"></textarea>
+
+        <button id="saveBtn">
+            Save Day
+        </button>
+
+    </div>
+
+    <div class="card">
+
+        <h2>This Week</h2>
+
+        <table id="entryTable">
+
+            <thead>
+
+                <tr>
+                    <th>Date</th>
+                    <th>Hours</th>
+                    <th>Miles</th>
+                    <th>Acres</th>
+                    <th>Type</th>
+                    <th>Travel</th>
+                    <th>Area</th>
+                    <th></th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+            </tbody>
+
+        </table>
+
+        <div class="totals">
+
+            <h3>Weekly Totals</h3>
+
+            <p>Total Hours:
+                <span id="totalHours">0</span>
+            </p>
+
+            <p>Total Miles:
+                <span id="totalMiles">0</span>
+            </p>
+
+            <p>Total Acres:
+                <span id="totalAcres">0</span>
+            </p>
+
+            <p>Total Travel:
+                <span id="totalTravel">0</span> hrs
+            </p>
+
+        </div>
+
+        <button id="exportBtn">
+            Export Excel
+        </button>
+
+        <button id="clearBtn" class="danger">
+            Clear Week
+        </button>
+
+    </div>
+
+</div>
+
+<script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
+
+<script src="script.js"></script>
+
+</body>
+</html>
