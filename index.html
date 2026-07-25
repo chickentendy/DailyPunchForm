@@ -55,7 +55,36 @@
         </select>
 
         <label>Travel Time (Hours)</label>
-        <input type="number" id="travelTime" step="0.25">
+<input type="number" id="travelTime" step="0.25">
+
+
+<label>Vehicle Used</label>
+<select id="vehicleType">
+
+    <option value="Company Vehicle">
+        Company Vehicle
+    </option>
+
+    <option value="Personal Vehicle">
+        Personal Vehicle
+    </option>
+
+</select>
+
+
+<label>Mileage Reimbursement Rate ($/mile)</label>
+<input 
+type="number" 
+id="mileageRate" 
+step="0.01"
+value="0.76">
+
+
+<label>Hourly Pay Rate ($/hour)</label>
+<input 
+type="number"
+id="hourlyRate"
+step="0.01">
 
         <label>Location Area</label>
         <input type="text" id="location">
@@ -104,25 +133,66 @@
 
         </table>
 
-        <div class="totals">
+       <div class="totals">
 
-            <h3>Weekly Totals</h3>
+<h3>Weekly Summary</h3>
 
-            <p>Total Hours:
-                <span id="totalHours">0</span>
-            </p>
 
-            <p>Total Miles:
-                <span id="totalMiles">0</span>
-            </p>
+<p>
+Total Hours:
+<span id="totalHours">0</span>
+</p>
 
-            <p>Total Acres:
-                <span id="totalAcres">0</span>
-            </p>
 
-            <p>Total Travel:
-                <span id="totalTravel">0</span> hrs
-            </p>
+<p>
+Regular Hours:
+<span id="regularHours">0</span>
+</p>
+
+
+<p>
+Overtime Hours:
+<span id="overtimeHours">0</span>
+</p>
+
+
+<p>
+Total Miles:
+<span id="totalMiles">0</span>
+</p>
+
+
+<p>
+Personal Vehicle Miles:
+<span id="personalMiles">0</span>
+</p>
+
+
+<p>
+Mileage Reimbursement:
+$<span id="mileagePay">0</span>
+</p>
+
+
+<p>
+Regular Pay:
+$<span id="regularPay">0</span>
+</p>
+
+
+<p>
+Overtime Pay:
+$<span id="overtimePay">0</span>
+</p>
+
+
+<h3>
+Estimated Gross Pay:
+$<span id="grossPay">0</span>
+</h3>
+
+
+</div>
 
         </div>
 
