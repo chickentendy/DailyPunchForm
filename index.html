@@ -21,7 +21,50 @@
 </header>
 
 <div class="container">
+<div class="card">
 
+<h2>⚙️ Settings</h2>
+
+
+<label>Default Hourly Rate ($/hour)</label>
+
+<input 
+type="number"
+id="defaultHourlyRate"
+step="0.01"
+value="20.00">
+
+
+<label>Default Mileage Reimbursement ($/mile)</label>
+
+<input
+type="number"
+id="defaultMileageRate"
+step="0.01"
+value="0.76">
+
+
+<label>Default Vehicle</label>
+
+<select id="defaultVehicle">
+
+<option value="Company Vehicle">
+Company Vehicle
+</option>
+
+<option value="Personal Vehicle">
+Personal Vehicle
+</option>
+
+</select>
+
+
+<button id="saveSettingsBtn">
+Save Settings
+</button>
+
+
+</div>
     <div class="card">
 
         <h2>Daily Entry</h2>
