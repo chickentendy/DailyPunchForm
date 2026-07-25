@@ -5,7 +5,19 @@
 
 
 let entries = [];
+
 let editingId = null;
+
+
+let settings = {
+
+    hourlyRate: 20,
+
+    mileageRate: 0.76,
+
+    vehicle: "Company Vehicle"
+
+};
 
 
 // ---------- Load Data ----------
