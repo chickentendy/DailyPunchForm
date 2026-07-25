@@ -542,3 +542,11 @@ function clearForm(){
 
 
 }
+// ---------- Excel Export Button ----------
+
+document
+.getElementById("exportBtn")
+.addEventListener(
+    "click",
+    exportExcel
+);
